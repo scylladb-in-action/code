@@ -1,0 +1,23 @@
+CREATE TABLE basic(
+    text TEXT, 
+    ascii ASCII, 
+    bigint BIGINT, 
+    blob BLOB, 
+    boolean BOOLEAN, 
+    date DATE, 
+    decimal DECIMAL, 
+    double DOUBLE, 
+    duration DURATION, 
+    float FLOAT, 
+    inet INET, 
+    int INT, 
+    smallint SMALLINT, 
+    time TIME, 
+    timestamp TIMESTAMP, 
+    timeuuid TIMEUUID, 
+    tinyint TINYINT, 
+    uuid UUID, 
+    varchar VARCHAR, 
+    varint VARINT, 
+    PRIMARY KEY (text)
+);
