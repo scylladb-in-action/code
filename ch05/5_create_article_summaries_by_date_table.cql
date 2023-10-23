@@ -6,4 +6,4 @@ CREATE TABLE reviews.article_summaries_by_date(
     score TINYINT,
     image image,
     PRIMARY KEY (date_bucket, id)
-);
+) WITH CLUSTERING ORDER BY (id DESC);

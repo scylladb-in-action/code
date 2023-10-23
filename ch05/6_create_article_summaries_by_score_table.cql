@@ -5,4 +5,4 @@ CREATE TABLE reviews.article_summaries_by_score(
     author_name TEXT,
     image image,
     PRIMARY KEY (score, id)
-);
+) WITH CLUSTERING ORDER BY (id DESC);

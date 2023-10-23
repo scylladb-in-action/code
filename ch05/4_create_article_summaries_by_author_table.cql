@@ -6,4 +6,4 @@ CREATE TABLE reviews.article_summaries_by_author(
     score TINYINT,
     image image,
     PRIMARY KEY (author_id, id)
-);
+) WITH CLUSTERING ORDER BY (id DESC);
