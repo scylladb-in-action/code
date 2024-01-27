@@ -1,4 +1,4 @@
-INSERT INTO authors(
+INSERT INTO reviews.authors(
   id, 
   name, 
   bio 
@@ -8,7 +8,7 @@ INSERT INTO authors(
   'Alice loves writing about food'
 ); 
 
-INSERT into authors(
+INSERT INTO reviews.authors(
   id,
   name,
   bio
@@ -18,8 +18,15 @@ INSERT into authors(
   'Reginald is a food enthusiast who loves to review food'
 );
 
+CREATE TABLE IF NOT EXISTS reviews.article_scores_by_author(
+    author_id TIMEUUID,
+    score TINYINT,
+    id TIMEUUID,
+    PRIMARY KEY (author_id, score, id)
+) WITH CLUSTERING ORDER BY (score DESC, id DESC);
+
 BEGIN BATCH
-INSERT INTO articles(
+INSERT INTO reviews.articles(
   id,
   title,
   author_id,
@@ -38,7 +45,7 @@ INSERT INTO articles(
   'I expected it to be good; it was great! At Ernie''s Eats...',
   'Ernie''s Eats'
 );
-INSERT INTO article_summaries_by_author(
+INSERT INTO reviews.article_summaries_by_author(
   author_id,
   id,
   author_name,
@@ -53,7 +60,7 @@ INSERT INTO article_summaries_by_author(
   100,
   'Ernie''s Eats Exceeds Expectations'
 );
-INSERT INTO article_summaries_by_date(
+INSERT INTO reviews.article_summaries_by_date(
   date_bucket,
   id,
   author_name,
@@ -68,7 +75,7 @@ INSERT INTO article_summaries_by_date(
   100,
   'Ernie''s Eats Exceeds Expectations'
 );
-INSERT INTO article_summaries_by_score(
+INSERT INTO reviews.article_summaries_by_score(
   id,
   author_name,
   image,
@@ -81,10 +88,19 @@ INSERT INTO article_summaries_by_score(
   100,
   'Ernie''s Eats Exceeds Expectations'
 );
+INSERT INTO reviews.article_scores_by_author(
+  author_id,
+  score,
+  id
+) VALUES (
+  eff9bd01-4a73-11ee-8863-c02b3f99d2b2,
+  100,
+  1e24e04c-7044-11ee-b962-0242ac120002
+);
 APPLY BATCH;
 
 BEGIN BATCH
-INSERT INTO articles(
+INSERT INTO reviews.articles(
   id,
   title,
   author_id,
@@ -103,7 +119,7 @@ INSERT INTO articles(
   'Homemade tortillas make the difference...',
   'Main Street Tacos'
 );
-INSERT INTO article_summaries_by_author(
+INSERT INTO reviews.article_summaries_by_author(
   author_id,
   id,
   author_name,
@@ -118,7 +134,7 @@ INSERT INTO article_summaries_by_author(
   85,
   'Good Tacos at Main Street Tacos'
 );
-INSERT INTO article_summaries_by_date(
+INSERT INTO reviews.article_summaries_by_date(
   date_bucket,
   id,
   author_name,
@@ -133,7 +149,7 @@ INSERT INTO article_summaries_by_date(
   85,
   'Good Tacos at Main Street Tacos'
 );
-INSERT INTO article_summaries_by_score(
+INSERT INTO reviews.article_summaries_by_score(
   id,
   author_name,
   image,
@@ -146,10 +162,19 @@ INSERT INTO article_summaries_by_score(
   85,
   'Good Tacos at Main Street Tacos'
 );
+INSERT INTO reviews.article_scores_by_author(
+  author_id,
+  score,
+  id
+) VALUES (
+  eff9bd01-4a73-11ee-8863-c02b3f99d2b2,
+  85,
+  78fb3d92-7047-11ee-b962-0242ac120002
+);
 APPLY BATCH;
 
 BEGIN BATCH
-INSERT INTO articles(
+INSERT INTO reviews.articles(
   id,
   title,
   author_id,
@@ -168,7 +193,7 @@ INSERT INTO articles(
   'They only serve one item at Pepperoni Pizza Only, but it''s pretty good...',
   'Pepperoni Pizza Only'
 );
-INSERT INTO article_summaries_by_author(
+INSERT INTO reviews.article_summaries_by_author(
   author_id,
   id,
   author_name,
@@ -183,7 +208,7 @@ INSERT INTO article_summaries_by_author(
   75,
   'Lack of Variety at Pepperoni Pizza Only'
 );
-INSERT INTO article_summaries_by_date(
+INSERT INTO reviews.article_summaries_by_date(
   date_bucket,
   id,
   author_name,
@@ -198,7 +223,7 @@ INSERT INTO article_summaries_by_date(
   75,
   'Lack of Variety at Pepperoni Pizza Only'
 );
-INSERT INTO article_summaries_by_score(
+INSERT INTO reviews.article_summaries_by_score(
   id,
   author_name,
   image,
@@ -211,10 +236,19 @@ INSERT INTO article_summaries_by_score(
   75,
   'Lack of Variety at Pepperoni Pizza Only'
 );
+INSERT INTO reviews.article_scores_by_author(
+  author_id,
+  score,
+  id
+) VALUES (
+  eff9bd01-4a73-11ee-8863-c02b3f99d2b2,
+  75,
+  b71e77f8-704a-11ee-b962-0242ac120002
+);
 APPLY BATCH;
 
 BEGIN BATCH
-INSERT INTO articles(
+INSERT INTO reviews.articles(
   id,
   title,
   author_id,
@@ -233,7 +267,7 @@ INSERT INTO articles(
   'Without a doubt, the best mashed potatoes in this city...',
   'Mash Rules Everything Around Me'
 );
-INSERT INTO article_summaries_by_author(
+INSERT INTO reviews.article_summaries_by_author(
   author_id,
   id,
   author_name,
@@ -248,7 +282,7 @@ INSERT INTO article_summaries_by_author(
   100,
   'Life-changing Potatoes'
 );
-INSERT INTO article_summaries_by_date(
+INSERT INTO reviews.article_summaries_by_date(
   date_bucket,
   id,
   author_name,
@@ -263,7 +297,7 @@ INSERT INTO article_summaries_by_date(
   100,
   'Life-changing Potatoes'
 );
-INSERT INTO article_summaries_by_score(
+INSERT INTO reviews.article_summaries_by_score(
   id,
   author_name,
   image,
@@ -276,10 +310,19 @@ INSERT INTO article_summaries_by_score(
   100,
   'Life-changing Potatoes'
 );
+INSERT INTO reviews.article_scores_by_author(
+  author_id,
+  score,
+  id
+) VALUES (
+  33a753de-704c-11ee-b962-0242ac120002,
+  100,
+  9f545786-704b-11ee-b962-0242ac120002
+);
 APPLY BATCH;
 
 BEGIN BATCH
-INSERT INTO articles(
+INSERT INTO reviews.articles(
   id,
   title,
   author_id,
@@ -298,7 +341,7 @@ INSERT INTO articles(
   'They claim to have 9000 flavors, and allof them I tried were good...',
   '9000 wings'
 );
-INSERT INTO article_summaries_by_author(
+INSERT INTO reviews.article_summaries_by_author(
   author_id,
   id,
   author_name,
@@ -313,7 +356,7 @@ INSERT INTO article_summaries_by_author(
   90,
   'So Many Flavors at 9000 wings'
 );
-INSERT INTO article_summaries_by_date(
+INSERT INTO reviews.article_summaries_by_date(
   date_bucket,
   id,
   author_name,
@@ -328,7 +371,7 @@ INSERT INTO article_summaries_by_date(
   90,
   'So Many Flavors at 9000 wings'
 );
-INSERT INTO article_summaries_by_score(
+INSERT INTO reviews.article_summaries_by_score(
   id,
   author_name,
   image,
@@ -340,5 +383,14 @@ INSERT INTO article_summaries_by_score(
   {path: 'wings.jpg', caption: 'They claim to have 9000 flavors'},
   90,
   'So Many Flavors at 9000 wings'
+);
+INSERT INTO reviews.article_scores_by_author(
+  author_id,
+  score,
+  id
+) VALUES (
+  33a753de-704c-11ee-b962-0242ac120002,
+  90,
+  7fcf4e82-704d-11ee-b962-0242ac120002
 );
 APPLY BATCH;
