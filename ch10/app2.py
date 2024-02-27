@@ -22,7 +22,7 @@ def create_app():
 def get_db_session():
     if 'db' not in g: 
         # Create a Cluster object with Scylla's address (localhost) and port
-        cluster = Cluster(["127.0.0.1"], port=9042)
+        cluster = Cluster(["127.0.0.1"], port=19042)
 
         # Connect to a specific keyspace on the cluster
         session = cluster.connect('reviews')

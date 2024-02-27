@@ -33,7 +33,7 @@ def get_db_session():
         # specified in your profile
         cluster = Cluster(
             ["127.0.0.1"], 
-            port=9042, 
+            port=19042, 
             # EXEC_PROFILE_DEFAULT is the default profile used
             execution_profiles={EXEC_PROFILE_DEFAULT: profile}
         )
