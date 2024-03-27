@@ -1,3 +1,3 @@
 # ScyllaDB in Action
 
-This repository contains the code listings for _ScyllaDB in Action_. 
+This repository contains the code for [ScyllaDB in Action](https://www.manning.com/books/scylladb-in-action). 
