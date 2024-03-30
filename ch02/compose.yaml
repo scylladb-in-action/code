@@ -1,0 +1,42 @@
+services:
+  scylla-1:
+    container_name: scylla-1
+    image: scylladb/scylla:5.4
+    hostname: scylla-1
+    command: "--reactor-backend=epoll"
+    ports:
+      - "9241:9042"
+      - "19241:9042"
+    networks:
+      - scylla-network
+  scylla-2:
+    container_name: scylla-2
+    image: scylladb/scylla:5.4
+    hostname: scylla-2
+    command: "--seeds=scylla-1 --reactor-backend=epoll"
+    ports:
+      - "9242:9042"
+      - "19242:9042"
+    networks:
+      - scylla-network
+    depends_on:
+      - scylla-1
+  scylla-3:
+    container_name: scylla-3
+    image: scylladb/scylla:5.4
+    hostname: scylla-3
+    command: "--seeds=scylla-1 --reactor-backend=epoll"
+    ports:
+      - "9243:9042"
+      - "19243:9042"
+    networks:
+      - scylla-network
+    depends_on: 
+      - scylla-2
+networks:
+  scylla-network:
+    driver: bridge
+    external: true
+    name: "scylla-network"
+version: "3"
+

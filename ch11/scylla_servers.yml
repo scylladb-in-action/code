@@ -1,0 +1,5 @@
+- targets:
+    - scylla-reviews
+  labels:
+    cluster: cluster1
+    dc: dc1
