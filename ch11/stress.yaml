@@ -2,13 +2,13 @@ keyspace: stress
 table: article_summaries_by_date
 columnspec:
   - name: date_bucket
-    population: uniform(0..200)
+    population: uniform(0..240)
   - name: id
     cluster: uniform(10..25)
   - name: author_name
     size: uniform(5..20)
   - name: score
-    population: uniform(0..100)
+    population: uniform(1..100)
   - name: title
     size: uniform(20..50)
 queries:
