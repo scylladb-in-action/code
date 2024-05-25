@@ -1,3 +1,5 @@
+TRUNCATE reviews.authors;
+
 INSERT INTO reviews.authors(
   id, 
   name, 
@@ -24,6 +26,12 @@ CREATE TABLE IF NOT EXISTS reviews.article_scores_by_author(
     id TIMEUUID,
     PRIMARY KEY (author_id, score, id)
 ) WITH CLUSTERING ORDER BY (score DESC, id DESC);
+
+TRUNCATE reviews.articles;
+TRUNCATE reviews.article_summaries_by_date;
+TRUNCATE reviews.article_summaries_by_score;
+TRUNCATE reviews.article_summaries_by_author;
+TRUNCATE reviews.article_scores_by_author;
 
 BEGIN BATCH
 INSERT INTO reviews.articles(

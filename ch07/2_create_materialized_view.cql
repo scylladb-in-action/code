@@ -1,5 +1,5 @@
 CREATE MATERIALIZED VIEW 
-    article_summaries_by_score_view
+    reviews.article_summaries_by_score_view
     AS 
         SELECT score, id, title, author_name, image
         FROM article_summaries_by_date
